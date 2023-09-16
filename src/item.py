@@ -19,15 +19,21 @@ class Item:
         self.all.append(self.__name)
 
     def __repr__(self):
-        return f"Item('{self.name}', {self.price}, {self.quantity})"
+        """Метод возвращение в виде 'Название класса(имя, цена, кол-во)"""
+        return f"{self.__class__.__name__}('{self.name}', {self.price}, {self.quantity})"
 
     def __str__(self):
         return self.name
+
+    def __add__(self, other):
+        """метод реализует суммирование экземплров класса по количеству в магазине"""
+        return self.quantity + other.quantity
 
     def get_name(self):
         return self.__name
 
     def set_name(self, name):
+        """метод проверяет количество символов в названии и обрезает в случае если символов >10"""
         if len(name) > 0:
             name = name[:10]
         self.__name = name
@@ -53,11 +59,14 @@ class Item:
         """
         Инициализирует экземпляры класса данными из файла
         """
-        with open(path, 'r') as f:
+        Item.all =[]
+        # path = f'../{path}'
+        with open(path, newline='') as f:
             file = csv.DictReader(f)
             for info in file:
                 Item(info['name'],info['price'],info['quantity'])
 
     def string_to_number(number):
+        """Возвращает число (int) вместо строки"""
         return int(float(number))
 
