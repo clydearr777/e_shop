@@ -13,3 +13,13 @@ def test_apply_discount():
     test2.pay_rate = 0.85
     discount_price = test2.price * test2.pay_rate
     assert test2.apply_discount() == discount_price
+
+def test_string_to_number():
+    assert Item.string_to_number("9.25") == 9
+
+def test__repr__():
+    test = Item('Плеер', 100, 1)
+    assert test.__repr__() == "Item('Плеер', 100, 1)"
+def test__str__():
+    test = Item('Овощерезка', 50, 900)
+    assert test.__str__() == 'Овощерезка'
