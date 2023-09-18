@@ -16,6 +16,10 @@ class Phone(Item):
             print("Количество физических SIM-карт должно быть целым числом больше нуля.")
         super().__init__(name, price, quantity)
 
+    # @number_of_sim.setter
+    # def number_of_sim(self, sim):
+    #     pass
+
 
 
     def __repr__(self):

@@ -15,7 +15,11 @@ def test_apply_discount():
     assert test2.apply_discount() == discount_price
 
 def test_string_to_number():
+    """ caseTest for Homework-2, получаем из строки - число"""
     assert Item.string_to_number("9.25") == 9
+def test_name():
+    """ CaseTest for Homework-2  setter name"""
+    assert Item.name('ЭтоОченьДлинноеИмя') == 'ЭтоОченьДл'
 
 def test__repr__():
     test = Item('Плеер', 100, 1)
