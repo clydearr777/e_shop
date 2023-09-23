@@ -50,16 +50,13 @@ class Item:
         """ HOMEWORK-2  Возвращает число (int) вместо строки"""
         return int(float(number))
 
-
     def __repr__(self):
-        """Метод возвращение в виде 'Название класса(имя, цена, кол-во)"""
+        """ Homework-3 Метод возвращение в виде 'Название класса(имя, цена, кол-во)"""
         return f"{self.__class__.__name__}('{self.__name}', {self.price}, {self.quantity})"
 
     def __str__(self):
+        """Homewokr-3 магический метод __str__"""
         return self.__name
-
-
-
 
     def __add__(self, other):
         """метод реализует суммирование экземплров класса по количеству в магазине"""
