@@ -22,8 +22,10 @@ def test_name():
     assert Item.name('ЭтоОченьДлинноеИмя') == 'ЭтоОченьДл'
 
 def test__repr__():
+    """ Test homework-3"""
     test = Item('Плеер', 100, 1)
     assert test.__repr__() == "Item('Плеер', 100, 1)"
 def test__str__():
+    """Test homework-3"""
     test = Item('Овощерезка', 50, 900)
     assert test.__str__() == 'Овощерезка'
