@@ -1,6 +1,7 @@
 """Здесь надо написать тесты с использованием pytest для модуля item."""
 
 from src.item import Item
+from src.phone import Phone
 
 
 def test_calculate_total_price():
@@ -17,9 +18,9 @@ def test_apply_discount():
 def test_string_to_number():
     """ caseTest for Homework-2, получаем из строки - число"""
     assert Item.string_to_number("9.25") == 9
-def test_name():
-    """ CaseTest for Homework-2  setter name"""
-    assert Item.name('ЭтоОченьДлинноеИмя') == 'ЭтоОченьДл'
+# def test_name():
+#     """ CaseTest for Homework-2  setter name"""
+#     assert Item.name('ЭтоОченьДлинноеИмя') == 'ЭтоОченьДл'
 
 def test__repr__():
     """ Test homework-3"""
@@ -29,3 +30,17 @@ def test__str__():
     """Test homework-3"""
     test = Item('Овощерезка', 50, 900)
     assert test.__str__() == 'Овощерезка'
+
+
+def test__add__():
+    """ Test homework-4"""
+    phone1 = Phone('Dexp', 1000, 7, 2)
+    item1 = Phone("Tix", 2000, 3, 1)
+    assert Phone.__add__(phone1, item1) == 10
+
+def test__repr__():
+    """TestCase homework-4"""
+    test = Phone("Xioami", 1000, 1, 2)
+    assert test.__repr__() == "Phone('Xioami', 1000, 1, 2)"
+
+

@@ -59,7 +59,7 @@ class Item:
         return self.__name
 
     def __add__(self, other):
-        """метод реализует суммирование экземплров класса по количеству в магазине"""
+        """ homework-4 метод реализует суммирование экземплров класса по количеству в магазине"""
         return self.quantity + other.quantity
 
     def calculate_total_price(self):
