@@ -30,10 +30,8 @@ class Mixin:
         """
         if self.language == 'EN':
             self.language = 'RU'
-            print('переключили На русский')
         else:
             self.language = 'EN'
-            print('переключили На англ')
 
 
 class Keyboard(Mixin, Item):
