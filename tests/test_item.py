@@ -2,6 +2,7 @@
 
 from src.item import Item
 from src.phone import Phone
+from src.keyboard import Keyboard
 
 
 def test_calculate_total_price():
@@ -42,5 +43,24 @@ def test__repr__():
     """TestCase homework-4"""
     test = Phone("Xioami", 1000, 1, 2)
     assert test.__repr__() == "Phone('Xioami', 1000, 1, 2)"
+
+def test__repr__():
+    """TestCase homework-5"""
+    test = Keyboard('Sven', 999, 9)
+    assert test.__repr__() == "Keyboard('Sven', 999, 9)"
+
+
+def test__add__():
+    """TestCase homework-5"""
+    keyboard1 = Keyboard('Sven', 9, 2)
+    item1 = Phone('Iphone X', 90, 8, 3)
+    assert Keyboard.__add__(keyboard1, item1) == 10
+
+def test_change_lang():
+    """TestCase homework-5"""
+    key1 = Keyboard('Sven', 888, 8)
+    assert key1.language == "EN"
+
+
 
 
