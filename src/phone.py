@@ -1,7 +1,6 @@
 from src.item import Item
 
 
-
 class Phone(Item):
     """
     класс-наследник от класса ITEM
