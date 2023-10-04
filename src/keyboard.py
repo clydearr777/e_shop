@@ -46,12 +46,5 @@ class Keyboard(Mixin, Item):
      """
     def __init__(self, name: str, price: float, quantity: int):
         super().__init__(name, price, quantity)
-        # self.__language = 'EN'
-
-
-
-
-
-
 
 
