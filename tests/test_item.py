@@ -3,6 +3,8 @@
 from src.item import Item
 from src.phone import Phone
 from src.keyboard import Keyboard
+from src.InstantiateCSVError import InstantiateSCVError
+import pytest
 
 
 def test_calculate_total_price():
@@ -60,6 +62,14 @@ def test_change_lang():
     """TestCase homework-5"""
     key1 = Keyboard('Sven', 888, 8)
     assert key1.language == "EN"
+
+def test_InstantiateSCVError():
+    with pytest.raises(InstantiateSCVError):
+        Item.instantiate_from_csv(1, path='../src/wrong_item.csv')
+
+def test_instantiate_from_scv():
+    with pytest.raises(FileNotFoundError):
+        Item.instantiate_from_csv(1, 'file.txt')
 
 
 

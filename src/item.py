@@ -1,4 +1,5 @@
 import csv
+from src.InstantiateCSVError import InstantiateSCVError
 
 
 class Item:
@@ -75,3 +76,34 @@ class Item:
         """
         self.price *= self.pay_rate
         return self.price
+
+    @classmethod
+    def instantiate_from_csv(cls, number=1, path='../src/items.csv'):
+        """   """
+        try:
+            with open(path) as file:
+                d_csv = csv.DictReader(file)
+                len_of_dict = len(d_csv.fieldnames)
+                dict_used = []
+                if len_of_dict != 3:
+                    raise InstantiateSCVError('InstantiateCSVError: Файл item.csv поврежден')
+                for element in d_csv:
+                    dict_used.append(element)
+
+                    if number < 1 or number > 5:
+                        number = 1
+                    name = dict_used[number - 1]["name"]
+                    price = int(dict_used[number - 1]["price"])
+                    quantity = int(dict_used[number - 1]["quantity"])
+        except FileNotFoundError:
+            print("FileNotFoundError: Отсутствует файл item.csv")
+            raise
+        except InstantiateSCVError:
+            print("InstantiateSCVError: Файл item.csv поврежден")
+            raise
+        return cls(name, price, quantity)
+
+
+
+
+
