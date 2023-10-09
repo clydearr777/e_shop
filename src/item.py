@@ -79,7 +79,7 @@ class Item:
 
     @classmethod
     def instantiate_from_csv(cls, number=1, path='../src/items.csv'):
-        """   """
+        """ Метод класса дл исключений  """
         try:
             with open(path) as file:
                 d_csv = csv.DictReader(file)
@@ -96,11 +96,9 @@ class Item:
                     price = int(dict_used[number - 1]["price"])
                     quantity = int(dict_used[number - 1]["quantity"])
         except FileNotFoundError:
-            print("FileNotFoundError: Отсутствует файл item.csv")
-            raise
-        except InstantiateSCVError:
-            print("InstantiateSCVError: Файл item.csv поврежден")
-            raise
+            raise FileNotFoundError('Отсутствует файл item.csv')
+        except (ValueError, KeyError):
+            raise InstantiateSCVError('Файл item.csv поврежден')
         return cls(name, price, quantity)
 
 
